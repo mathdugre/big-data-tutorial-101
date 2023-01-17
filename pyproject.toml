@@ -9,14 +9,17 @@ authors = [
   { name = "Mathieu Dugré", email = "mathdugre@pm.me" },
 ]
 
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
 [tool.setuptools]
 packages = []
 
 [tool.hatch.envs.default]
 python = "/home/math/.pyenv/shims/python"
-dependencies = [
-  "pytest",
-]
+dependencies = {file = ["requirements.txt"]}
 
 [[tool.hatch.envs.test.matrix]]
 python = ["311"]
