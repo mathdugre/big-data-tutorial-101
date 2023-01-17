@@ -1,0 +1,28 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Workflow and Python Ecosystem for Data Science
+author: Mathieu Dugré
+# logo: logo.png
+exclude_patterns : ["README.md"]
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks : force
+
+repository:
+  url: https://github.com/mathdugre/big-data-tutorial-101
+  branch: main
+
+launch_buttons:
+  notebook_interface: "jupyterlab"
+  binderhub_url: "https://mybinder.org"
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  navbar_number_sections : True
+  use_repository_button: True
+  use_issues_button: False
+

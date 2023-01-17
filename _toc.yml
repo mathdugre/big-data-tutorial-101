@@ -1,0 +1,135 @@
+format: jb-article
+root: chapters/intro
+title: Introduction
+options:
+  numbered: true
+
+sections:
+  #  Python
+  - file: chapters/01/_python
+    title: Tour of Python
+    sections:
+      - file: chapters/01/installation
+        title: Python Installation and Setup
+      - file: chapters/01/venv
+        title: Virtual Environments
+      # - file: chapters/01/dev
+      #   title: Recommended Development Environment
+
+      # Basic Topics
+      - file: chapters/01/python/_intro
+        title: A Brief Introduction to Python
+        sections:
+          - file: chapters/01/python/data-types
+            title: Data Types
+          - file: chapters/01/python/control-flows
+            title: Control Flows
+          - file: chapters/01/python/classes
+            title: Classes
+          - file: chapters/01/python/exceptions
+            title: Exceptions
+          - file: chapters/01/python/modules
+            title: Modules
+          
+        
+          # # Advanced Topics
+          # - file: chapters/01/python/advanced/_intro
+          #   title: Advanced Python Topics
+          #   sections:
+          #     - file: chapters/01/python/advanced/generators
+          #       title: Generators
+          #     - file: chapters/01/python/advanced/decorators
+          #       title: Decorators
+          #     - file: chapters/01/python/advanced/context-managers
+          #       title: Context Managers
+
+  # Git and GitHub
+  - file: chapters/02/_file-versioning
+    title: File Versioning
+    sections:
+      - file: chapters/02/installation
+        title: Git Installation and Setup
+      - file: chapters/02/basic
+        title: Git workflow and common practices
+      - file: chapters/02/github
+        title: GitHub Overview
+      - file: chapters/02/advanced
+        title: Useful Advanced Git Commands
+
+  # # Docker
+  # - file: chapters/03/_containers
+  #   title: What are Containers and Why Use Them?
+  #   sections:
+  #     - file: chapters/03/installation
+  #       title: Docker Installation and Setup
+  #     - file: chapters/03/how-to-use
+  #       title: Using Docker with Existing Images
+  #     - file: chapters/03/building-image
+  #       title: Building our own Docker Image
+
+  # Continuous Integration and Delivery
+  - file: chapters/04/_CICD
+    title: Continuous Integration and Delivery
+    sections:
+      - file: chapters/04/pytest
+        title: Testing with pytest
+      # - file: chapters/04/github-actions
+      #   title: Continuous Testing with GitHub Actions
+      # - file: chapters/04/pre-commit
+      #   title: Validating code with pre-commit
+
+  # # Data Science Libraries
+  # - file: chapters/05/_data-science-libraries
+  #   title: 
+  #   sections:
+  #     - file: chapters/05/numpy/_intro
+  #       title: A Brief Introduction to NumPy
+  #       # TODO
+  #       # sections:
+  #       #   - file:
+  #       #     title: 
+  #     - file: chapters/05/pandas/_intro
+  #       title: A Brief Introduction to Pandas
+  #       # TODO
+  #       # sections:
+  #       #   - file:
+  #       #     title: 
+
+  # # Data Visualization
+  # - file: chapters/06/_data-visualization
+  #   title: Data Visualization
+  #   sections:
+  #     - file: chapters/06/matplotlib.ipynb
+  #       title: Visualizing Data with matplotlib
+  #     - file: chapters/06/seaborn.ipynb
+  #       title: Visualizing Data with seaborn
+  #     - file: chapters/06/bokeh.ipynb
+  #       title: Visualizing Data with Bokeh
+
+          
+  # # Hardware Accelerators
+  # - file: chapters/07/_hardware-accelerators
+  #   title: Hardware Acceleration
+  #   sections:
+  #     - file: chapters/07/rapids
+  #       title: Leveraging GPUs with RAPIDS
+          
+  # # 
+  # - file: chapters/08/_big-data
+  #   title: Scaling Big Data Projects
+  #   sections:
+  #     - file: chapters/08/spark/_intro
+  #       title: Spark
+  #       # sections:
+  #       #   - file:  chapters/08/spark/
+  #       #     title: 
+  #     - file: chapters/08/dask/_intro
+  #       title: Dask
+  #       # sections:
+  #       #   - file: chapters/08/dask/
+  #       #     title: 
+  #     - file: chapters/08/ray/_intro
+  #       title: Ray
+  #       # sections:
+  #       #   - file: chapters/08/ray/
+  #       #     title: 

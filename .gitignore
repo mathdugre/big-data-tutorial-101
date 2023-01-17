@@ -1,0 +1,11 @@
+# Python
+.pytest_cache
+.mypy_cache
+.venv
+
+# Jupyter book
+_build
+
+# Chapters
+chapters/**/*.py
+chapters/**/__pycache__

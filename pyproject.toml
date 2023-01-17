@@ -1,0 +1,18 @@
+[project]
+name = "Big Data tutorial 101"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Mathieu Dugré", email = "mathdugre@pm.me" },
+]
+
+[tool.hatch.envs.default]
+python = "/home/math/.pyenv/shims/python"
+dependencies = [
+  "pytest",
+]
+
+[[tool.hatch.envs.test.matrix]]
+python = ["311"]
