@@ -18,8 +18,7 @@ dependencies = {file = ["requirements.txt"]}
 packages = []
 
 [tool.hatch.envs.default]
-python = "/home/math/.pyenv/shims/python"
-dependencies = {file = ["requirements.txt"]}
+python = "3.11"
 
 [[tool.hatch.envs.test.matrix]]
 python = ["311"]
