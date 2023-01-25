@@ -102,7 +102,7 @@ Another common use case is going back a specific numbers of commit back into the
 For example, rolling back one commit is done as follow:
 
 ```bash
-$ git HEAD~1
+$ git checkout HEAD~1
 ```
 
 **Note:** In git, `HEAD` reference to the current commit.
