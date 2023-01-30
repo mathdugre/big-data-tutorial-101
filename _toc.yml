@@ -99,11 +99,11 @@ sections:
   # - file: chapters/06/_data-visualization
   #   title: Data Visualization
   #   sections:
-  #     - file: chapters/06/matplotlib.ipynb
+  #     - file: chapters/06/matplotlib
   #       title: Visualizing Data with matplotlib
-  #     - file: chapters/06/seaborn.ipynb
+  #     - file: chapters/06/seaborn
   #       title: Visualizing Data with seaborn
-  #     - file: chapters/06/bokeh.ipynb
+  #     - file: chapters/06/bokeh
   #       title: Visualizing Data with Bokeh
 
           
@@ -114,22 +114,13 @@ sections:
   #     - file: chapters/07/rapids
   #       title: Leveraging GPUs with RAPIDS
           
-  # # 
-  # - file: chapters/08/_big-data
-  #   title: Scaling Big Data Projects
-  #   sections:
-  #     - file: chapters/08/spark/_intro
-  #       title: Spark
-  #       # sections:
-  #       #   - file:  chapters/08/spark/
-  #       #     title: 
-  #     - file: chapters/08/dask/_intro
-  #       title: Dask
-  #       # sections:
-  #       #   - file: chapters/08/dask/
-  #       #     title: 
-  #     - file: chapters/08/ray/_intro
+  # Big Data
+  - file: chapters/08/_big-data
+    title: Scaling Big Data Projects
+    sections:
+      - file: chapters/08/pyspark
+        title: PySpark
+      - file: chapters/08/dask
+        title: Dask
+  #     - file: chapters/08/ray/Ray
   #       title: Ray
-  #       # sections:
-  #       #   - file: chapters/08/ray/
-  #       #     title: 
