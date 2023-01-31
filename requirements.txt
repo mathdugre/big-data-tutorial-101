@@ -1,1 +1,7 @@
+dask[complete]
+graphviz
+jupyter-book
+matplotlib
+numpy
 pytest
+pyspark

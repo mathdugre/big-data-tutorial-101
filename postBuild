@@ -1,0 +1,7 @@
+wget https://dlcdn.apache.org/spark/spark-3.3.1/spark-3.3.1-bin-hadoop3.tgz
+tar -xzf spark-3.3.1-bin-hadoop3.tgz
+# set spark home and pyspark paths
+SPARK_HOME=$HOME/spark-3.3.1-bin-hadoop3
+export PATH=$SPARK_HOME/bin:$JAVA_HOME/jre/bin:$PATH
+export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH
+export PYSPARK_PYTHON=python

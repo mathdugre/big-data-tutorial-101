@@ -3,10 +3,10 @@
 .mypy_cache
 .venv
 *.egg-info
+__pycache__
 
 # Jupyter book
 _build
 
 # Chapters
 chapters/**/*.py
-chapters/**/__pycache__

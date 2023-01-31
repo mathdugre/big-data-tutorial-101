@@ -9,7 +9,7 @@ The purpose of this chapter is to introduce different Big Data frameworks availa
 - [PySpark](https://spark.apache.org/docs/latest/api/python/#)
 - [Dask](https://www.dask.org/)
 
-**Note:** A docker image is available with all dependencies required for this tutorial. You can build it from this project repository or directly from Docker hub:
+**Note:** A docker image is available with all dependencies required for this tutorial:
 
 ```bash
 $ docker pull mathdugre/bigdata-101

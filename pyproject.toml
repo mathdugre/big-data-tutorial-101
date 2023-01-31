@@ -2,7 +2,7 @@
 name = "Big-Data-tutorial-101"
 version = "0.1"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 license = { text = "MIT" }
 keywords = []
 authors = [
@@ -18,7 +18,7 @@ dependencies = {file = ["requirements.txt"]}
 packages = []
 
 [tool.hatch.envs.default]
-python = "3.11"
+python = "3.10"
 
 [[tool.hatch.envs.test.matrix]]
-python = ["311"]
+python = ["310"]

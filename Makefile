@@ -1,4 +1,4 @@
 default:
-	PYDEVD_DISABLE_FILE_VALIDATION=1 jb build .
+	PYDEVD_DISABLE_FILE_VALIDATION=1 jb build book
 clean:
-	jb clean .
+	jb clean book
