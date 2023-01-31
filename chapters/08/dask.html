@@ -1,0 +1,1140 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4.2. Dask &#8212; Workflow and Python Ecosystem for Data Science</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="4.1. PySpark" href="pyspark.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Workflow and Python Ecosystem for Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Workflow and Python Ecosystem for Data Science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01/_python.html">
+   1. Tour of Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/installation.html">
+     1.1. Installing Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01/venv.html">
+     1.3. Virtual Environments
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../01/python/_intro.html">
+     1.4. A Brief Introduction to Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01/python/data-types.html">
+       1.4.1. Data Types
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01/python/control-flows.html">
+       1.4.2. Control Flows
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01/python/classes.html">
+       1.4.3. Classes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01/python/exceptions.html">
+       1.4.4. Exceptions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01/python/modules.html">
+       1.4.5. Modules
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02/_file-versioning.html">
+   2. File Versioning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/installation.html">
+     2.1. Git Installation and Setup
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/basic.html">
+     2.2. Git workflow and common practices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/github.html">
+     2.3. GitHub Overview
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02/advanced.html">
+     2.4. Useful Advanced Git Commands
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04/_CICD.html">
+   3. Continuous Integration and Delivery
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04/pytest.html">
+     3.1. Testing with pytest
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="_big-data.html">
+   4. Scaling Big Data Projects
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="pyspark.html">
+     4.1. PySpark
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     4.2. Dask
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mathdugre/big-data-tutorial-101/main?urlpath=lab/tree/chapters/08/dask.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/mathdugre/big-data-tutorial-101"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/08/dask.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   4.2.1. Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#delayed">
+   4.2.2. Delayed
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#important-notes">
+     4.2.2.1. Important notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#array">
+   4.2.3. Array
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-dask-array-object">
+     4.2.3.1. Create
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       dask.array
+      </span>
+     </code>
+     object
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulate-dask-array-objct-as-you-would-a-np-array">
+     4.2.3.2. Manipulate
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       dask.array
+      </span>
+     </code>
+     objct as you would a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np
+      </span>
+     </code>
+     array
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limitations">
+     4.2.3.3. Limitations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bag">
+   4.2.4. Bag
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creation">
+     4.2.4.1. Creation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulation">
+     4.2.4.2. Manipulation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#groupby-and-foldby">
+     4.2.4.3. GroupBy and FoldBy
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#groupby">
+       4.2.4.3.1.
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         groupby
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#foldby">
+       4.2.4.3.2.
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         foldby
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     4.2.4.4. Limitations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataframe">
+   4.2.5. DataFrame
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     4.2.5.1. Limitations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Dask</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   4.2.1. Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#delayed">
+   4.2.2. Delayed
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#important-notes">
+     4.2.2.1. Important notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#array">
+   4.2.3. Array
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-dask-array-object">
+     4.2.3.1. Create
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       dask.array
+      </span>
+     </code>
+     object
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulate-dask-array-objct-as-you-would-a-np-array">
+     4.2.3.2. Manipulate
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       dask.array
+      </span>
+     </code>
+     objct as you would a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np
+      </span>
+     </code>
+     array
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limitations">
+     4.2.3.3. Limitations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bag">
+   4.2.4. Bag
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creation">
+     4.2.4.1. Creation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulation">
+     4.2.4.2. Manipulation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#groupby-and-foldby">
+     4.2.4.3. GroupBy and FoldBy
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#groupby">
+       4.2.4.3.1.
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         groupby
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#foldby">
+       4.2.4.3.2.
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         foldby
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     4.2.4.4. Limitations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataframe">
+   4.2.5. DataFrame
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     4.2.5.1. Limitations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="dask">
+<h1><span class="section-number">4.2. </span>Dask<a class="headerlink" href="#dask" title="Permalink to this headline">#</a></h1>
+<p>The content of this section is a Jupyter book implementation of <a class="reference external" href="https://github.com/azazel7/BigData-Lab/tree/master/lab3-dask">this tutorial</a>.</p>
+<p><strong>Dask Cluster</strong></br>
+<img alt="Dask Cluster" src="../../_images/dask-cluster.png" /></p>
+<section id="installation">
+<h2><span class="section-number">4.2.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
+<p>To install the complete collection of packages offered by Dask:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;dask[complete]&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="delayed">
+<h2><span class="section-number">4.2.2. </span>Delayed<a class="headerlink" href="#delayed" title="Permalink to this headline">#</a></h2>
+<p>Delayed functions are lazily evaluated functions (i.e. only evaluated when result is required / when <code class="docutils literal notranslate"><span class="pre">compute()</span></code> is called).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask</span>
+
+
+<span class="k">def</span> <span class="nf">inc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nd">@dask</span><span class="o">.</span><span class="n">delayed</span>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+	<span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or a function can be passed to the <code class="docutils literal notranslate"><span class="pre">dask.delayed()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">inc</span><span class="p">)(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">inc</span><span class="p">)(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Delayed(&#39;add-54fce5f4-8d8e-4eca-b82a-074345d2d2de&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because <code class="docutils literal notranslate"><span class="pre">z</span></code> is still a delayed object, the <code class="docutils literal notranslate"><span class="pre">compute()</span></code> function needs to be called.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">visualize</span></code> function can be used to visualize the graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/dask_12_0.png" src="../../_images/dask_12_0.png" />
+</div>
+</div>
+<p>All Dask objects have a <code class="docutils literal notranslate"><span class="pre">dask</span></code> attribute that stores the calculations necessary to produce the result in a dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">dask</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;add-54fce5f4-8d8e-4eca-b82a-074345d2d2de&#39;: (&lt;function __main__.add(x, y)&gt;,
+  &#39;inc-031ccba6-a124-428a-b407-5cbf98513706&#39;,
+  &#39;inc-8a304731-dbaf-47f5-a444-5863b09f4ecb&#39;),
+ &#39;inc-031ccba6-a124-428a-b407-5cbf98513706&#39;: (&lt;function __main__.inc(x)&gt;, 1),
+ &#39;inc-8a304731-dbaf-47f5-a444-5863b09f4ecb&#39;: (&lt;function __main__.inc(x)&gt;, 2)}
+</pre></div>
+</div>
+</div>
+</div>
+<section id="important-notes">
+<h3><span class="section-number">4.2.2.1. </span>Important notes<a class="headerlink" href="#important-notes" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Not all functions should be delayed. It may be desirable to immediately execute fast functions which allow us to determine which slow functions need to be called.</p></li>
+<li><p>Methods and attribute access on delayed objects work automatically, so if you have a delayed object you can perform normal arithmetic, slicing, and method calls on it and it will produce the correct delayed calls.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">dask</span><span class="o">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">)(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)[::</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">y</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="array">
+<h2><span class="section-number">4.2.3. </span>Array<a class="headerlink" href="#array" title="Permalink to this headline">#</a></h2>
+<p>Dask array provides a parallel, larger-than-memory, n-dimensional array using blocked algorithms. Simply put: distributed NumPy.</p>
+<section id="create-dask-array-object">
+<h3><span class="section-number">4.2.3.1. </span>Create <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> object<a class="headerlink" href="#create-dask-array-object" title="Permalink to this headline">#</a></h3>
+<p>You can create a dask.array Array object with the da.from_array function. This function accepts</p>
+<ul class="simple">
+<li><p>data: Any object that supports NumPy slicing</p></li>
+<li><p>chunks: A chunk size to tell us how to block up our array, like (1000000,)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100000000</span><span class="p">)</span> <span class="c1"># create random numpy array</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">from_array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">1000000</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="manipulate-dask-array-objct-as-you-would-a-np-array">
+<h3><span class="section-number">4.2.3.2. </span>Manipulate <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> objct as you would a <code class="docutils literal notranslate"><span class="pre">np</span></code> array<a class="headerlink" href="#manipulate-dask-array-objct-as-you-would-a-np-array" title="Permalink to this headline">#</a></h3>
+<p>Now that we have an Array we perform standard numpy-style computations like arithmetic, mathematics, slicing, reductions, etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50002956.537103504
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.21641328, 0.34722194, 0.69964978, 0.86633274])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="limitations">
+<h3><span class="section-number">4.2.3.3. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">dask.array</span></code> does not implement the entire numpy interface. Users expecting this will be disappointed. Notably <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> has the following failings:</p>
+<ul class="simple">
+<li><p>Dask does not implement all of np.linalg. This has been done by a number of excellent BLAS/LAPACK implementations and is the focus of numerous ongoing academic research projects.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dask.array</span></code> does not support any operation where the resulting shape depends on the values of the array. In order to form the Dask graph we must be able to infer the shape of the array before actually executing the operation. This precludes operations like indexing one Dask array with another or operations like np.where.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dask.array</span></code> does not attempt operations like sort which are notoriously difficult to do in parallel and are of somewhat diminished value on very large data (you rarely actually need a full sort). Often we include parallel-friendly alternatives like topk.</p></li>
+<li><p>Dask development is driven by immediate need, and so many lesser used functions, like np.full_like have not been implemented purely out of laziness. These would make excellent community contributions.</p></li>
+</ul>
+</section>
+</section>
+<section id="bag">
+<h2><span class="section-number">4.2.4. </span>Bag<a class="headerlink" href="#bag" title="Permalink to this headline">#</a></h2>
+<p>Dask-bag excels in processing data that can be represented as a sequence of arbitrary inputs. We’ll refer to this as “messy” data, because it can contain complex nested structures, missing fields, mixtures of data types, etc. The functional programming style fits very nicely with standard Python iteration, such as can be found in the itertools module.</p>
+<section id="creation">
+<h3><span class="section-number">4.2.4.1. </span>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">#</a></h3>
+<p>Dask bags can be created from a Python sequence, file, etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask.bag</span> <span class="k">as</span> <span class="nn">db</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">from_sequence</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">npartitions</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 2, 3)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="manipulation">
+<h3><span class="section-number">4.2.4.2. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">#</a></h3>
+<p>Bag objects hold the standard functional API found in projects like the Python standard library, toolz, or pyspark, including <code class="docutils literal notranslate"><span class="pre">map</span></code>, <code class="docutils literal notranslate"><span class="pre">filter</span></code>, <code class="docutils literal notranslate"><span class="pre">groupby</span></code>, etc.</p>
+<p>Operations on Bag objects create new bags. Call the <code class="docutils literal notranslate"><span class="pre">compute()</span></code> method to trigger execution, as we saw for Delayed objects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">from_sequence</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_even</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">c</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dask.bag&lt;lambda, npartitions=10&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 16, 36, 64, 100]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="groupby-and-foldby">
+<h3><span class="section-number">4.2.4.3. </span>GroupBy and FoldBy<a class="headerlink" href="#groupby-and-foldby" title="Permalink to this headline">#</a></h3>
+<p>Often we want to group data by some function or key. We can do this either with the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method, which is straightforward but forces a full shuffle of the data (expensive) or with the harder-to-use but faster <code class="docutils literal notranslate"><span class="pre">foldby</span></code> method, which does a streaming combined groupby and reduction.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">groupby</span></code>: Shuffles data so that all items with the same key are in the same key-value pair.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">foldby</span></code>: Walks through the data accumulating a result per key.</p></li>
+</ul>
+<p>Note: the full groupby is particularly bad. In actual workloads you would do well to use foldby or switch to DataFrames if possible.</p>
+<section id="groupby">
+<h4><span class="section-number">4.2.4.3.1. </span><code class="docutils literal notranslate"><span class="pre">groupby</span></code><a class="headerlink" href="#groupby" title="Permalink to this headline">#</a></h4>
+<p>Groupby collects items in your collection so that all items with the same value under some function are collected together into a key-value pair.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">from_sequence</span><span class="p">([</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;Dan&#39;</span><span class="p">,</span> <span class="s1">&#39;Edith&#39;</span><span class="p">,</span> <span class="s1">&#39;Frank&#39;</span><span class="p">])</span>
+<span class="n">b</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>  <span class="c1"># names grouped by length</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(7, [&#39;Charlie&#39;]), (3, [&#39;Bob&#39;, &#39;Dan&#39;]), (5, [&#39;Alice&#39;, &#39;Edith&#39;, &#39;Frank&#39;])]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">from_sequence</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+<span class="n">is_even</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span>
+<span class="n">b</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">is_even</span><span class="p">)</span><span class="o">.</span><span class="n">starmap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, 8), (1, 9)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="foldby">
+<h4><span class="section-number">4.2.4.3.2. </span><code class="docutils literal notranslate"><span class="pre">foldby</span></code><a class="headerlink" href="#foldby" title="Permalink to this headline">#</a></h4>
+<p>When using foldby you provide:</p>
+<ul class="simple">
+<li><p>A key function on which to group elements</p></li>
+<li><p>A binary operator such as you would pass to reduce that you use to perform reduction per each group</p></li>
+<li><p>A combine binary operator that can combine the results of two reduce calls on different parts of your dataset.</p></li>
+</ul>
+<p>Your reduction must be associative. It will happen in parallel in each of the partitions of your dataset. Then all of these intermediate results will be combined by the combine binary operator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">.</span><span class="n">foldby</span><span class="p">(</span><span class="n">is_even</span><span class="p">,</span> <span class="n">binop</span><span class="o">=</span><span class="nb">max</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="nb">max</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, 8), (1, 9)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id1">
+<h3><span class="section-number">4.2.4.4. </span>Limitations<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>Bags provide very general computation (any Python function.) This generality comes at cost. Bags have the following known limitations</p>
+<ul class="simple">
+<li><p>Bag operations tend to be slower than array/dataframe computations in the same way that Python tends to be slower than NumPy/Pandas</p></li>
+<li><p>Bag.groupby is slow. You should try to use Bag.foldby if possible. Using Bag.foldby requires more thought. Even better, consider creating a normalised dataframe.</p></li>
+</ul>
+</section>
+</section>
+<section id="dataframe">
+<h2><span class="section-number">4.2.5. </span>DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">dask.dataframe</span></code> module implements a blocked parallel DataFrame object that mimics a large subset of the Pandas DataFrame. One Dask DataFrame is comprised of many in-memory pandas DataFrames separated along the index. One operation on a Dask DataFrame triggers many pandas operations on the constituent pandas DataFrames in a way that is mindful of potential parallelism and memory constraints.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">dd</span>
+
+
+<span class="c1"># Note: datatypes are inferred by reading the first couple of lines</span>
+<span class="c1"># and may be incorrect and therefore need to be supplied</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;trees.csv&#39;</span><span class="p">,</span>
+<span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Tree&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;Park Name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">})</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Tree</th>
+      <th>Park Name</th>
+      <th>x</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Canada Park</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Otter Park</td>
+      <td>63</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Canada Park</td>
+      <td>2</td>
+      <td>25</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dask</span><span class="o">.</span><span class="n">visualize</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/dask_52_0.png" src="../../_images/dask_52_0.png" />
+</div>
+</div>
+<section id="id2">
+<h3><span class="section-number">4.2.5.1. </span>Limitations<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<p>Dask.dataframe only covers a small but well-used portion of the Pandas API. This limitation is for two reasons:</p>
+<ul class="simple">
+<li><p>The Pandas API is huge</p></li>
+<li><p>Some operations are genuinely hard to do in parallel (e.g. sort)</p></li>
+</ul>
+<p>Additionally, some important operations like set_index work, but are slower than in Pandas because they include substantial shuffling of data, and may write out to disk.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/08"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="pyspark.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">4.1. </span>PySpark</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mathieu Dugré<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

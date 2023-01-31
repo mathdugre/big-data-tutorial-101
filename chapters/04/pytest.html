@@ -52,6 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. Scaling Big Data Projects" href="../08/_big-data.html" />
     <link rel="prev" title="3. Continuous Integration and Delivery" href="_CICD.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -212,6 +213,28 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      3.1. Testing with pytest
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../08/_big-data.html">
+   4. Scaling Big Data Projects
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08/pyspark.html">
+     4.1. PySpark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08/dask.html">
+     4.2. Dask
     </a>
    </li>
   </ul>
@@ -468,7 +491,7 @@ For now, the function will do nothing.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing greeting.py
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting greeting.py
 </pre></div>
 </div>
 </div>
@@ -492,7 +515,7 @@ For now, the function will do nothing.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing test_greeting.py
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting test_greeting.py
 </pre></div>
 </div>
 </div>
@@ -506,16 +529,13 @@ For now, the function will do nothing.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.11.1, pytest-7.2.1, pluggy-1.0.0
-rootdir: /home/runner/work/big-data-tutorial-101/big-data-tutorial-101/chapters/04
+platform linux -- Python 3.10.9, pytest-7.2.1, pluggy-1.0.0
+rootdir: /home/runner/work/big-data-tutorial-101/big-data-tutorial-101/book/chapters/04
 plugins: anyio-3.6.2
 <span class=" -Color -Color-Bold">collecting ... </span>
 <span class=" -Color -Color-Bold">collected 1 item                                                               </span>
 
-test_greeting.py 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">F                                                       [100%]</span>
+test_greeting.py <span class=" -Color -Color-Red">F                                                       [100%]</span>
 
 =================================== FAILURES ===================================
 <span class=" -Color -Color-Bold -Color-Bold-Red">__________________________________ test_greet __________________________________</span>
@@ -530,7 +550,7 @@ test_greeting.py
 <span class=" -Color -Color-Bold -Color-Bold-Cyan">=========================== short test summary info ============================</span>
 <span class=" -Color -Color-Red">FAILED</span> test_greeting.py::<span class=" -Color -Color-Bold">test_greet</span> - AssertionError: assert &#39;&#39; == &#39;Hello Alice!&#39;
   - Hello Alice!
-<span class=" -Color -Color-Red">============================== </span><span class=" -Color -Color-Bold -Color-Bold-Red">1 failed</span><span class=" -Color -Color-Red"> in 0.10s ===============================</span>
+<span class=" -Color -Color-Red">============================== </span><span class=" -Color -Color-Bold -Color-Bold-Red">1 failed</span><span class=" -Color -Color-Red"> in 0.08s ===============================</span>
 </pre></div>
 </div>
 </div>
@@ -577,8 +597,8 @@ test_greeting.py
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">============================= test session starts ==============================</span>
-platform linux -- Python 3.11.1, pytest-7.2.1, pluggy-1.0.0
-rootdir: /home/runner/work/big-data-tutorial-101/big-data-tutorial-101/chapters/04
+platform linux -- Python 3.10.9, pytest-7.2.1, pluggy-1.0.0
+rootdir: /home/runner/work/big-data-tutorial-101/big-data-tutorial-101/book/chapters/04
 plugins: anyio-3.6.2
 <span class=" -Color -Color-Bold">collecting ... </span>
 <span class=" -Color -Color-Bold">collected 1 item                                                               </span>
@@ -627,6 +647,13 @@ test_greeting.py <span class=" -Color -Color-Green">.                           
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title"><span class="section-number">3. </span>Continuous Integration and Delivery</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../08/_big-data.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Scaling Big Data Projects</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
