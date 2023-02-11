@@ -13,4 +13,8 @@ The purpose of this chapter is to introduce different Big Data frameworks availa
 
 ```bash
 $ docker pull mathdugre/bigdata-101
+$ docker run --rm -it -v $PWD:/app mathdugre/bigdata-101 [args]
 ```
+
+The container should be launched from the project root; or `$PWD` should be changed accordingly.
+<br>By default, the container will run `pytest` command. You can pass extra `[args]` to the container, while launching it.

@@ -398,8 +398,11 @@ On the other hand, the increased computational cost required to process this dat
 </ul>
 <p><strong>Note:</strong> A docker image is available with all dependencies required for this tutorial:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>mathdugre/bigdata-101
+$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span><span class="nv">$PWD</span>:/app<span class="w"> </span>mathdugre/bigdata-101<span class="w"> </span><span class="o">[</span>args<span class="o">]</span>
 </pre></div>
 </div>
+<p>The container should be launched from the project root; or <code class="docutils literal notranslate"><span class="pre">$PWD</span></code> should be changed accordingly.
+<br>By default, the container will run <code class="docutils literal notranslate"><span class="pre">pytest</span></code> command. You can pass extra <code class="docutils literal notranslate"><span class="pre">[args]</span></code> to the container, while launching it.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -416,7 +419,7 @@ On the other hand, the increased computational cost required to process this dat
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters/08"
         },
         predefinedOutput: true
