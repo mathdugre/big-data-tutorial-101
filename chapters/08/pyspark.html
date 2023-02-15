@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>4.1. PySpark &#8212; Workflow and Python Ecosystem for Data Science</title>
+    <title>4.2. PySpark &#8212; Workflow and Python Ecosystem for Data Science</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4.2. Dask" href="dask.html" />
-    <link rel="prev" title="4. Scaling Big Data Projects" href="_big-data.html" />
+    <link rel="next" title="4.3. Best Practices" href="best_practices.html" />
+    <link rel="prev" title="4.1. Dask" href="dask.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -227,14 +227,19 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="dask.html">
+     4.1. Dask
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     4.1. PySpark
+     4.2. PySpark
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="dask.html">
-     4.2. Dask
+    <a class="reference internal" href="best_practices.html">
+     4.3. Best Practices
     </a>
    </li>
   </ul>
@@ -415,29 +420,29 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#installation">
-   4.1.1. Installation
+   4.2.1. Installation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rdds">
-   4.1.2. RDDs
+   4.2.2. RDDs
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#actions">
-     4.1.2.1. Actions
+     4.2.2.1. Actions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#tranformations">
-     4.1.2.2. Tranformations
+     4.2.2.2. Tranformations
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dataframes">
-   4.1.3. Dataframes
+   4.2.3. Dataframes
   </a>
  </li>
 </ul>
@@ -461,29 +466,29 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#installation">
-   4.1.1. Installation
+   4.2.1. Installation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rdds">
-   4.1.2. RDDs
+   4.2.2. RDDs
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#actions">
-     4.1.2.1. Actions
+     4.2.2.1. Actions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#tranformations">
-     4.1.2.2. Tranformations
+     4.2.2.2. Tranformations
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dataframes">
-   4.1.3. Dataframes
+   4.2.3. Dataframes
   </a>
  </li>
 </ul>
@@ -497,16 +502,16 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="pyspark">
-<h1><span class="section-number">4.1. </span>PySpark<a class="headerlink" href="#pyspark" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">4.2. </span>PySpark<a class="headerlink" href="#pyspark" title="Permalink to this headline">#</a></h1>
 <p>The content of this section is a jupyter book implementation of <a class="reference external" href="https://github.com/azazel7/BigData-Lab/tree/master/lab2-spark">this tutorial</a>.</p>
 <p><strong>Spark Cluster</strong></br>
 <img alt="Spark Cluster" src="../../_images/spark-cluster.webp" /></p>
 <section id="installation">
-<h2><span class="section-number">4.1.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.2.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
 <p>To install PySpark on your system, I recommend following <a class="reference external" href="https://www.datacamp.com/tutorial/installation-of-pyspark">this guide</a>.</p>
 </section>
 <section id="rdds">
-<h2><span class="section-number">4.1.2. </span>RDDs<a class="headerlink" href="#rdds" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.2.2. </span>RDDs<a class="headerlink" href="#rdds" title="Permalink to this headline">#</a></h2>
 <p>Resilient Distributed DAtasets (RDDs) can be seen as a sequence of elements. However, transformation on RDDs are evaluated lazily.
 </br>The <a class="reference external" href="https://spark.apache.org/docs/latest/rdd-programming-guide.html">official RDDs documentation</a> covers extensively their usage.
 </br>Cheat Sheet: <a class="reference external" href="https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PySpark_Cheat_Sheet_Python.pdf">PySpark RDDs</a>.</p>
@@ -523,7 +528,7 @@ title="Print to PDF"
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23/02/11 16:22:54 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23/02/15 01:29:46 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 </pre></div>
 </div>
 </div>
@@ -556,7 +561,7 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 </div>
 </div>
 <section id="actions">
-<h3><span class="section-number">4.1.2.1. </span>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.2.1. </span>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">#</a></h3>
 <p>Spark actions evaluate the rdd and usually returns data.
 </br>Some useful actions:</p>
 <ul class="simple">
@@ -572,11 +577,6 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Stage 0:&gt;                                                          (0 + 2) / 2]
-
-                                                                                
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </pre></div>
 </div>
@@ -590,8 +590,9 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Stage 1:&gt;                                                          (0 + 1) / 1]
-
-                                                                                
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                                
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Tree,Park Name,x,y&#39;, &#39;1,Canada Park,2,3&#39;, &#39;2,Otter Park,63,21&#39;]
@@ -613,7 +614,7 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 </div>
 </section>
 <section id="tranformations">
-<h3><span class="section-number">4.1.2.2. </span>Tranformations<a class="headerlink" href="#tranformations" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.2.2.2. </span>Tranformations<a class="headerlink" href="#tranformations" title="Permalink to this headline">#</a></h3>
 <p>Spark transformation lazily apply a function to a RDD.</br>
 Refer to the pyspark documentation for a <a class="reference external" href="https://spark.apache.org/docs/latest/rdd-programming-guide.html#transformations">complete list of transformations</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">map(func)</span></code> : Return a new distributed dataset formed by passing each element of the source through a function func.</p>
@@ -753,9 +754,9 @@ Refer to the pyspark documentation for a <a class="reference external" href="htt
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, &lt;pyspark.resultiterable.ResultIterable at 0x7f3eb8678ca0&gt;),
- (2, &lt;pyspark.resultiterable.ResultIterable at 0x7f3eb8678d90&gt;),
- (1, &lt;pyspark.resultiterable.ResultIterable at 0x7f3eb8678a60&gt;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, &lt;pyspark.resultiterable.ResultIterable at 0x7f7c489138e0&gt;),
+ (2, &lt;pyspark.resultiterable.ResultIterable at 0x7f7c489131f0&gt;),
+ (1, &lt;pyspark.resultiterable.ResultIterable at 0x7f7c48913d60&gt;)]
 </pre></div>
 </div>
 </div>
@@ -763,7 +764,7 @@ Refer to the pyspark documentation for a <a class="reference external" href="htt
 </section>
 </section>
 <section id="dataframes">
-<h2><span class="section-number">4.1.3. </span>Dataframes<a class="headerlink" href="#dataframes" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.2.3. </span>Dataframes<a class="headerlink" href="#dataframes" title="Permalink to this headline">#</a></h2>
 <p>Spark dataframes are tabular data. Similar to tables in SQL or spreadsheets.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1044,17 +1045,17 @@ Refer to the pyspark documentation for a <a class="reference external" href="htt
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="_big-data.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="dask.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">4. </span>Scaling Big Data Projects</p>
+            <p class="prev-next-title"><span class="section-number">4.1. </span>Dask</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="dask.html" title="next page">
+    <a class='right-next' id="next-link" href="best_practices.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.2. </span>Dask</p>
+        <p class="prev-next-title"><span class="section-number">4.3. </span>Best Practices</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

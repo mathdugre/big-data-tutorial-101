@@ -228,13 +228,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../08/pyspark.html">
-     4.1. PySpark
+    <a class="reference internal" href="../../08/dask.html">
+     4.1. Dask
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../08/dask.html">
-     4.2. Dask
+    <a class="reference internal" href="../../08/pyspark.html">
+     4.2. PySpark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08/best_practices.html">
+     4.3. Best Practices
     </a>
    </li>
   </ul>
@@ -715,7 +720,7 @@ In this section, we introduce the control flows used by Python for conditions, l
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-6 is a negative number.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-10 is a negative number.
 </pre></div>
 </div>
 </div>
@@ -747,8 +752,8 @@ Note: the variable name <code class="docutils literal notranslate"><span class="
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>point=(0, 1)
-Distance from origin: 1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>point=(1, 2)
+Distance from origin: 2.23606797749979
 </pre></div>
 </div>
 </div>
@@ -999,8 +1004,8 @@ Note: When the return statement is omitted, the <code class="docutils literal no
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original: point=(-0.2390093807746514, -0.8415723193333744)
-Rotated: point_=(0.8594566431951117, -0.6452690481301281)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original: point=(0.2993129412057509, -0.2851203460877807)
+Rotated: point_=(0.12078240620679381, -0.38901087004743085)
 </pre></div>
 </div>
 </div>
@@ -1086,7 +1091,7 @@ Rotated: point_=(0.8594566431951117, -0.6452690481301281)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 2, 1, 5, 3]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5, 3, 1, 2, 4]
 </pre></div>
 </div>
 </div>

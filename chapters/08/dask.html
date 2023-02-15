@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>4.2. Dask &#8212; Workflow and Python Ecosystem for Data Science</title>
+    <title>4.1. Dask &#8212; Workflow and Python Ecosystem for Data Science</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="4.1. PySpark" href="pyspark.html" />
+    <link rel="next" title="4.2. PySpark" href="pyspark.html" />
+    <link rel="prev" title="4. Scaling Big Data Projects" href="_big-data.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -226,14 +227,19 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="pyspark.html">
-     4.1. PySpark
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     4.2. Dask
+     4.1. Dask
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pyspark.html">
+     4.2. PySpark
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="best_practices.html">
+     4.3. Best Practices
     </a>
    </li>
   </ul>
@@ -414,29 +420,29 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#installation">
-   4.2.1. Installation
+   4.1.1. Installation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#delayed">
-   4.2.2. Delayed
+   4.1.2. Delayed
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#important-notes">
-     4.2.2.1. Important notes
+     4.1.2.1. Important notes
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#array">
-   4.2.3. Array
+   4.1.3. Array
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#create-dask-array-object">
-     4.2.3.1. Create
+     4.1.3.1. Create
      <code class="docutils literal notranslate">
       <span class="pre">
        dask.array
@@ -447,7 +453,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#manipulate-dask-array-objct-as-you-would-a-np-array">
-     4.2.3.2. Manipulate
+     4.1.3.2. Manipulate
      <code class="docutils literal notranslate">
       <span class="pre">
        dask.array
@@ -464,34 +470,34 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#limitations">
-     4.2.3.3. Limitations
+     4.1.3.3. Limitations
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bag">
-   4.2.4. Bag
+   4.1.4. Bag
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creation">
-     4.2.4.1. Creation
+     4.1.4.1. Creation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#manipulation">
-     4.2.4.2. Manipulation
+     4.1.4.2. Manipulation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#groupby-and-foldby">
-     4.2.4.3. GroupBy and FoldBy
+     4.1.4.3. GroupBy and FoldBy
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#groupby">
-       4.2.4.3.1.
+       4.1.4.3.1.
        <code class="docutils literal notranslate">
         <span class="pre">
          groupby
@@ -501,7 +507,7 @@ title="Print to PDF"
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#foldby">
-       4.2.4.3.2.
+       4.1.4.3.2.
        <code class="docutils literal notranslate">
         <span class="pre">
          foldby
@@ -513,19 +519,19 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     4.2.4.4. Limitations
+     4.1.4.4. Limitations
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dataframe">
-   4.2.5. DataFrame
+   4.1.5. DataFrame
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
-     4.2.5.1. Limitations
+     4.1.5.1. Limitations
     </a>
    </li>
   </ul>
@@ -551,29 +557,29 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#installation">
-   4.2.1. Installation
+   4.1.1. Installation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#delayed">
-   4.2.2. Delayed
+   4.1.2. Delayed
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#important-notes">
-     4.2.2.1. Important notes
+     4.1.2.1. Important notes
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#array">
-   4.2.3. Array
+   4.1.3. Array
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#create-dask-array-object">
-     4.2.3.1. Create
+     4.1.3.1. Create
      <code class="docutils literal notranslate">
       <span class="pre">
        dask.array
@@ -584,7 +590,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#manipulate-dask-array-objct-as-you-would-a-np-array">
-     4.2.3.2. Manipulate
+     4.1.3.2. Manipulate
      <code class="docutils literal notranslate">
       <span class="pre">
        dask.array
@@ -601,34 +607,34 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#limitations">
-     4.2.3.3. Limitations
+     4.1.3.3. Limitations
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bag">
-   4.2.4. Bag
+   4.1.4. Bag
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creation">
-     4.2.4.1. Creation
+     4.1.4.1. Creation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#manipulation">
-     4.2.4.2. Manipulation
+     4.1.4.2. Manipulation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#groupby-and-foldby">
-     4.2.4.3. GroupBy and FoldBy
+     4.1.4.3. GroupBy and FoldBy
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#groupby">
-       4.2.4.3.1.
+       4.1.4.3.1.
        <code class="docutils literal notranslate">
         <span class="pre">
          groupby
@@ -638,7 +644,7 @@ title="Print to PDF"
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#foldby">
-       4.2.4.3.2.
+       4.1.4.3.2.
        <code class="docutils literal notranslate">
         <span class="pre">
          foldby
@@ -650,19 +656,19 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     4.2.4.4. Limitations
+     4.1.4.4. Limitations
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dataframe">
-   4.2.5. DataFrame
+   4.1.5. DataFrame
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
-     4.2.5.1. Limitations
+     4.1.5.1. Limitations
     </a>
    </li>
   </ul>
@@ -678,19 +684,19 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="dask">
-<h1><span class="section-number">4.2. </span>Dask<a class="headerlink" href="#dask" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">4.1. </span>Dask<a class="headerlink" href="#dask" title="Permalink to this headline">#</a></h1>
 <p>The content of this section is a Jupyter book implementation of <a class="reference external" href="https://github.com/azazel7/BigData-Lab/tree/master/lab3-dask">this tutorial</a>.</p>
 <p><strong>Dask Cluster</strong></br>
 <img alt="Dask Cluster" src="../../_images/dask-cluster.png" /></p>
 <section id="installation">
-<h2><span class="section-number">4.2.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.1.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">#</a></h2>
 <p>To install the complete collection of packages offered by Dask:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;dask[complete]&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="delayed">
-<h2><span class="section-number">4.2.2. </span>Delayed<a class="headerlink" href="#delayed" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.1.2. </span>Delayed<a class="headerlink" href="#delayed" title="Permalink to this headline">#</a></h2>
 <p>Delayed functions are lazily evaluated functions (i.e. only evaluated when result is required / when <code class="docutils literal notranslate"><span class="pre">compute()</span></code> is called).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -718,7 +724,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Delayed(&#39;add-7325686d-09f9-440d-9684-091e93546bbf&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Delayed(&#39;add-5c9f37b4-2529-4da4-a77f-14a2e477e600&#39;)
 </pre></div>
 </div>
 </div>
@@ -755,17 +761,17 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;add-7325686d-09f9-440d-9684-091e93546bbf&#39;: (&lt;function __main__.add(x, y)&gt;,
-  &#39;inc-7ea142ab-01b8-420c-9857-4a8221045cd7&#39;,
-  &#39;inc-5a871939-d1a2-4126-a252-f1c6823dbd91&#39;),
- &#39;inc-7ea142ab-01b8-420c-9857-4a8221045cd7&#39;: (&lt;function __main__.inc(x)&gt;, 1),
- &#39;inc-5a871939-d1a2-4126-a252-f1c6823dbd91&#39;: (&lt;function __main__.inc(x)&gt;, 2)}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;add-5c9f37b4-2529-4da4-a77f-14a2e477e600&#39;: (&lt;function __main__.add(x, y)&gt;,
+  &#39;inc-54b1dc7b-e03e-4a4e-8aae-7ab7a3bdbdb0&#39;,
+  &#39;inc-20b11a12-17a4-4e5f-8f59-af75339c9b57&#39;),
+ &#39;inc-54b1dc7b-e03e-4a4e-8aae-7ab7a3bdbdb0&#39;: (&lt;function __main__.inc(x)&gt;, 1),
+ &#39;inc-20b11a12-17a4-4e5f-8f59-af75339c9b57&#39;: (&lt;function __main__.inc(x)&gt;, 2)}
 </pre></div>
 </div>
 </div>
 </div>
 <section id="important-notes">
-<h3><span class="section-number">4.2.2.1. </span>Important notes<a class="headerlink" href="#important-notes" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.2.1. </span>Important notes<a class="headerlink" href="#important-notes" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Not all functions should be delayed. It may be desirable to immediately execute fast functions which allow us to determine which slow functions need to be called.</p></li>
 <li><p>Methods and attribute access on delayed objects work automatically, so if you have a delayed object you can perform normal arithmetic, slicing, and method calls on it and it will produce the correct delayed calls.</p></li>
@@ -790,10 +796,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="array">
-<h2><span class="section-number">4.2.3. </span>Array<a class="headerlink" href="#array" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.1.3. </span>Array<a class="headerlink" href="#array" title="Permalink to this headline">#</a></h2>
 <p>Dask array provides a parallel, larger-than-memory, n-dimensional array using blocked algorithms. Simply put: distributed NumPy.</p>
 <section id="create-dask-array-object">
-<h3><span class="section-number">4.2.3.1. </span>Create <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> object<a class="headerlink" href="#create-dask-array-object" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.3.1. </span>Create <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> object<a class="headerlink" href="#create-dask-array-object" title="Permalink to this headline">#</a></h3>
 <p>You can create a dask.array Array object with the da.from_array function. This function accepts</p>
 <ul class="simple">
 <li><p>data: Any object that supports NumPy slicing</p></li>
@@ -812,7 +818,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="manipulate-dask-array-objct-as-you-would-a-np-array">
-<h3><span class="section-number">4.2.3.2. </span>Manipulate <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> objct as you would a <code class="docutils literal notranslate"><span class="pre">np</span></code> array<a class="headerlink" href="#manipulate-dask-array-objct-as-you-would-a-np-array" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.3.2. </span>Manipulate <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> objct as you would a <code class="docutils literal notranslate"><span class="pre">np</span></code> array<a class="headerlink" href="#manipulate-dask-array-objct-as-you-would-a-np-array" title="Permalink to this headline">#</a></h3>
 <p>Now that we have an Array we perform standard numpy-style computations like arithmetic, mathematics, slicing, reductions, etc.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -821,7 +827,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50002674.539143726
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49999411.70839054
 </pre></div>
 </div>
 </div>
@@ -833,14 +839,14 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.44279174, 0.88482836, 0.78741202, 0.08949616])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.63352681, 0.71011637, 0.88802317, 0.27358411])
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="limitations">
-<h3><span class="section-number">4.2.3.3. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.3.3. </span>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">dask.array</span></code> does not implement the entire numpy interface. Users expecting this will be disappointed. Notably <code class="docutils literal notranslate"><span class="pre">dask.array</span></code> has the following failings:</p>
 <ul class="simple">
 <li><p>Dask does not implement all of np.linalg. This has been done by a number of excellent BLAS/LAPACK implementations and is the focus of numerous ongoing academic research projects.</p></li>
@@ -851,10 +857,10 @@ title="Print to PDF"
 </section>
 </section>
 <section id="bag">
-<h2><span class="section-number">4.2.4. </span>Bag<a class="headerlink" href="#bag" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.1.4. </span>Bag<a class="headerlink" href="#bag" title="Permalink to this headline">#</a></h2>
 <p>Dask-bag excels in processing data that can be represented as a sequence of arbitrary inputs. We’ll refer to this as “messy” data, because it can contain complex nested structures, missing fields, mixtures of data types, etc. The functional programming style fits very nicely with standard Python iteration, such as can be found in the itertools module.</p>
 <section id="creation">
-<h3><span class="section-number">4.2.4.1. </span>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.4.1. </span>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">#</a></h3>
 <p>Dask bags can be created from a Python sequence, file, etc.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -872,7 +878,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="manipulation">
-<h3><span class="section-number">4.2.4.2. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.4.2. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">#</a></h3>
 <p>Bag objects hold the standard functional API found in projects like the Python standard library, toolz, or pyspark, including <code class="docutils literal notranslate"><span class="pre">map</span></code>, <code class="docutils literal notranslate"><span class="pre">filter</span></code>, <code class="docutils literal notranslate"><span class="pre">groupby</span></code>, etc.</p>
 <p>Operations on Bag objects create new bags. Call the <code class="docutils literal notranslate"><span class="pre">compute()</span></code> method to trigger execution, as we saw for Delayed objects.</p>
 <div class="cell docutils container">
@@ -906,7 +912,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="groupby-and-foldby">
-<h3><span class="section-number">4.2.4.3. </span>GroupBy and FoldBy<a class="headerlink" href="#groupby-and-foldby" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.4.3. </span>GroupBy and FoldBy<a class="headerlink" href="#groupby-and-foldby" title="Permalink to this headline">#</a></h3>
 <p>Often we want to group data by some function or key. We can do this either with the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method, which is straightforward but forces a full shuffle of the data (expensive) or with the harder-to-use but faster <code class="docutils literal notranslate"><span class="pre">foldby</span></code> method, which does a streaming combined groupby and reduction.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">groupby</span></code>: Shuffles data so that all items with the same key are in the same key-value pair.</p></li>
@@ -914,7 +920,7 @@ title="Print to PDF"
 </ul>
 <p>Note: the full groupby is particularly bad. In actual workloads you would do well to use foldby or switch to DataFrames if possible.</p>
 <section id="groupby">
-<h4><span class="section-number">4.2.4.3.1. </span><code class="docutils literal notranslate"><span class="pre">groupby</span></code><a class="headerlink" href="#groupby" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">4.1.4.3.1. </span><code class="docutils literal notranslate"><span class="pre">groupby</span></code><a class="headerlink" href="#groupby" title="Permalink to this headline">#</a></h4>
 <p>Groupby collects items in your collection so that all items with the same value under some function are collected together into a key-value pair.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -945,7 +951,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="foldby">
-<h4><span class="section-number">4.2.4.3.2. </span><code class="docutils literal notranslate"><span class="pre">foldby</span></code><a class="headerlink" href="#foldby" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">4.1.4.3.2. </span><code class="docutils literal notranslate"><span class="pre">foldby</span></code><a class="headerlink" href="#foldby" title="Permalink to this headline">#</a></h4>
 <p>When using foldby you provide:</p>
 <ul class="simple">
 <li><p>A key function on which to group elements</p></li>
@@ -968,7 +974,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="id1">
-<h3><span class="section-number">4.2.4.4. </span>Limitations<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.4.4. </span>Limitations<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>Bags provide very general computation (any Python function.) This generality comes at cost. Bags have the following known limitations</p>
 <ul class="simple">
 <li><p>Bag operations tend to be slower than array/dataframe computations in the same way that Python tends to be slower than NumPy/Pandas</p></li>
@@ -977,7 +983,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="dataframe">
-<h2><span class="section-number">4.2.5. </span>DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">4.1.5. </span>DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">dask.dataframe</span></code> module implements a blocked parallel DataFrame object that mimics a large subset of the Pandas DataFrame. One Dask DataFrame is comprised of many in-memory pandas DataFrames separated along the index. One operation on a Dask DataFrame triggers many pandas operations on the constituent pandas DataFrames in a way that is mindful of potential parallelism and memory constraints.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1067,7 +1073,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="id2">
-<h3><span class="section-number">4.2.5.1. </span>Limitations<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">4.1.5.1. </span>Limitations<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>Dask.dataframe only covers a small but well-used portion of the Pandas API. This limitation is for two reasons:</p>
 <ul class="simple">
 <li><p>The Pandas API is huge</p></li>
@@ -1105,12 +1111,19 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="pyspark.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="_big-data.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">4.1. </span>PySpark</p>
+            <p class="prev-next-title"><span class="section-number">4. </span>Scaling Big Data Projects</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="pyspark.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.2. </span>PySpark</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
