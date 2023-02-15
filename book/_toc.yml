@@ -118,9 +118,11 @@ sections:
   - file: chapters/08/_big-data
     title: Scaling Big Data Projects
     sections:
-      - file: chapters/08/pyspark
-        title: PySpark
       - file: chapters/08/dask
         title: Dask
+      - file: chapters/08/pyspark
+        title: PySpark
+      - file: chapters/08/best_practices
+        title: Best Practices
   #     - file: chapters/08/ray/Ray
   #       title: Ray
